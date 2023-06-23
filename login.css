@@ -1,0 +1,70 @@
+#background-video{
+    position: fixed;
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    top: 0%;
+    bottom: 0%;
+    right: 0%;
+    left: 0%;
+    z-index: -1;
+}
+.login{
+    text-align: center;
+    
+}
+h1{
+    margin-top: 10vh;
+    align-content: center;
+    text-align: center;
+    font-size: 4rem;
+    color: black;
+    font-style: italic;
+}
+
+
+select {
+    height: 30px;
+    width: 300px;
+    margin: 3px;
+    font-size: 18px;
+    text-align: center;
+}
+select:focus {
+    min-width: 300px;
+    width: auto;
+}
+
+.username {
+    margin: 5px;
+    height: 30px;
+    width: 300px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.password{
+    margin: 2px;
+    height: 30px;
+    width: 300px;
+    font-size: 18px;
+    text-align: center;
+}
+
+
+.login1{
+    height: 40px;
+    width: 150px;
+    font-size: 18px;
+    border-radius: 20px;
+    background-color: rgb(93, 159, 197); 
+    
+}
+
+@media (max-width: 750px) {
+    #background-video { display: none; }
+        body {
+            background: url("wvideo.mp4") no-repeat;
+            background-size: cover;
+        }
+}

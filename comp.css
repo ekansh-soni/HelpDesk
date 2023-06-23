@@ -1,0 +1,380 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    
+}
+.agent{
+    background-color: #1F8997;
+    height: 8rem;
+}
+.agent_header{
+    text-align: center;
+    padding-top: 2rem;
+    color: #ffff;
+    font-size: 2.5rem;
+    font-size: 4rem;
+}
+.logout_btn{
+    float: right;
+    margin-top: -4rem;
+    margin-right: .52rem;
+    height: 2.8rem;
+    width: 5rem;
+    font-size: .9rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.logout_btn:hover{
+    background-color: slategrey;
+    color: white;
+}
+
+.agent_name{
+    float: left;
+    margin-left: 10rem;
+    margin-top: -2.5rem;
+    width: 10rem;
+    height: 2.5rem;
+    background-color: #ffff;
+    text-transform: capitalize;
+    opacity: 0.9;
+    border-radius: 2rem;
+    color: black;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+
+}
+
+
+.agent_lside{
+    width: 25rem;
+    height: 49.5rem;
+    float: left;
+}
+.agent_lside1, .agent_lside2{
+    /* background-color: yellow; */
+    height: 22rem;
+    padding-top: 2rem;
+    padding-left: 2rem;
+
+
+}
+.agent_lside1_data1{
+    color: #1F8997;
+    text-transform: capitalize;
+    margin-top: 2rem;
+    font-size: 3rem;
+}
+p{
+    text-transform: capitalize;
+    font-size: 1.3rem;
+}
+.agent_rside{
+    position: absolute;
+    /* background-color: red;     */
+    width: 95rem;
+    height: 47.8rem;
+    left: 25rem;
+}
+.agent_rside1{
+    margin-top: 4rem;
+    margin-left: 4rem;    
+}
+
+.agent_rside_element{
+    height: 4rem;
+    width: 40rem;
+    margin: 2rem;
+    cursor: pointer;
+    border: .02rem solid black;
+    text-transform: capitalize;
+    text-align: center;
+    font-size: x-large;
+    border-radius: 2rem;
+
+}
+.agent_textarea{
+    
+    height: 10rem;
+    width: 80rem;
+    margin-left: 3rem;
+    resize: none;
+    border-radius: 2rem;
+    text-align: center;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+
+}
+.submit_btn{
+    margin-left: 8rem;
+    margin-top: 3rem;
+}
+#submit_btn{
+    height: 3rem;
+    width: 16rem;
+    font-size: 2rem;
+    text-transform: uppercase;
+    background-color: #1F8997;
+    color: white;
+    border-radius: 2rem;
+    border: black;
+    font-weight: lighter;
+    
+}
+#submit_btn:hover{
+    color: black;
+    background-color: slategrey;
+
+}
+
+/* now admin side */
+
+.admin_lside{
+    /* background-color: black; */
+    border:.2rem solid black;
+    width: 25rem;
+    height: 49rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+.admin_lside1{
+    color: black;
+    /* background-color: pink; */
+    width: 22rem;
+    height: 20rem;
+    text-align: center;
+    margin-top: 15rem;
+    
+}
+.admin_links{
+    display: grid;
+    text-decoration: none;
+    margin-top: 3rem;
+    margin-left: 2rem;
+    font-size: 2.5rem;
+    color: black;
+    border: 2px solid black;
+    border-radius: 2rem;
+    height: 3rem;
+    padding-top: .5rem;
+    text-transform: capitalize;
+    
+    
+
+}
+
+.admin_links:hover{
+    color: white;
+    background-color: lightblue;
+    border: 2px solid red;
+}
+
+.admin_rside{
+    position: relative;
+    left: 27rem;
+    margin-top: -49rem;
+    border: 2px solid black ;
+    width: 92rem;
+    height: 48.5rem;
+
+}
+.admin_frame{
+    border: 2px solid black;
+    width: 92rem;
+    height: 48.5rem;
+}
+
+/* now supervisor side */
+
+.supervisor_lside{
+    border: .2rem solid black;
+    height: 50rem;
+    width: 25rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+.supervisor_lside_1{
+    /* background-color: pink; */
+    margin-top: 10rem;
+    height: 35rem;
+    width: 25rem;
+}
+.supervisor_lside_links{
+    display: grid;
+    text-align: center;
+    height: 3rem;
+    color: black;
+    margin-top: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    border: .1rem solid grey;
+    border-radius: 1rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 4rem;
+    
+}
+
+.supervisor_lside_links:hover{
+    color: white;
+    background-color: #1F8997;
+}
+
+.supervisor_rside{
+    position: relative;
+    left: 27rem;
+    margin-top: -50rem;
+    border: 2px solid black ;
+    width: 92rem;
+    height: 50rem;
+
+}
+
+
+.supervisor_frame{
+    /* border: 2px solid black; */
+    width: 92rem;
+    height: 50rem;
+}
+
+
+
+/* Now all media queries for responsiveness @1300 px*/ 
+@media only screen and (max-width: 1300px) {
+    .agent_header {
+        
+        font-size: 3rem;
+    }
+    .agent{
+        width: 79rem;
+    }
+    .logout_btn{
+        margin-right: 4rem;
+        margin-top: -3rem;
+    }
+    .agent_lside{
+        width: 20rem;
+        height: 47rem;
+    }
+    .agent_lside1_data1{
+        font-size: 1.5rem;
+    }
+    .agent_rside{
+        left: 23rem;
+        margin-left: 0rem;
+        width: 50rem;
+        height: 47rem;
+    }
+    .agent_rside1{
+        margin-left: 1rem;
+        margin-top: 1.5rem;
+    }
+    .agent_rside_element{
+        width: 20rem;
+        height: 3.2rem;
+        font-size: 1.2rem;
+        
+    }
+    .agent_rside_element:hover{
+        border-color: red;
+        
+    }
+    .agent_textarea{
+        width: 48rem;
+        margin-left: 1.5rem;
+        font-size: 1.1rem;
+        margin-top: 1.1rem;
+        
+    }
+    #agent_textarea{
+        padding: 0.5rem;
+        
+    }
+    .agent_textarea:hover{
+        border-color: blue;
+
+    }
+    #submit_btn{
+        width: 10rem;
+        font-size: 1.2rem;
+        margin-left: -3rem;
+        margin-top: 1rem;
+
+
+    }
+
+    .admin_lside{
+        width: 20rem;
+        height: 45rem;
+        border: 0.1rem solid black;
+    }
+    .admin_lside1{
+        width: 20rem;
+        
+
+    }
+    .admin_links{
+        font-size: 1.5rem;
+        width: 13rem;
+        border: .1rem solid black;
+    }
+    .admin_rside{
+        left: 22rem;
+        top: 3.5rem;
+        height: 45rem;
+        width: 57rem;
+        border: 1px solid white;
+    }
+    .admin_frame{
+        height: 45rem;
+        width: 57rem;
+        border: 0.1rem solid black;
+    }
+
+    .supervisor_lside{
+        width: 20rem;
+        height: 45rem;
+        border: 0.1rem solid black;
+    }
+    .supervisor_lside_1{
+        width: 18rem;
+        
+        
+
+        
+    }
+    .supervisor_lside_links{
+        font-size: 1rem;
+        height: 2.5rem;
+        padding-top: 0.5rem;
+        border-radius: 2rem;
+        border: 0.1rem solid black;
+
+        
+    }
+
+    .supervisor_rside{
+        left: 22rem;
+        top: 5rem;
+        width: 56rem;
+        height: 45rem;
+        border: 0.1rem solid white;
+    }
+    .supervisor_frame{
+        width: 56rem;
+        height: 45rem;
+        margin-top: -1.5rem;
+        border: 0.1rem solid black;
+    }
+
+
+
+}

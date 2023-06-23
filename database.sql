@@ -1,0 +1,182 @@
+-- MySQL dump 10.13  Distrib 8.0.33, for Linux (x86_64)
+--
+-- Host: localhost    Database: helpdesk
+-- ------------------------------------------------------
+-- Server version	8.0.33-0ubuntu0.22.10.2
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `engineer`
+--
+
+DROP TABLE IF EXISTS `engineer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `engineer` (
+  `sno` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `id` varchar(255) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `sno` (`sno`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `engineer`
+--
+
+LOCK TABLES `engineer` WRITE;
+/*!40000 ALTER TABLE `engineer` DISABLE KEYS */;
+INSERT INTO `engineer` VALUES (15,'Amit.Kumar','eng01','2023-02-01 10:59:56'),(16,'Nikhil','eng02','2023-01-21 06:37:58');
+/*!40000 ALTER TABLE `engineer` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `p_details`
+--
+
+DROP TABLE IF EXISTS `p_details`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `p_details` (
+  `s_no` int NOT NULL AUTO_INCREMENT,
+  `p_id` int NOT NULL,
+  `p_cat_id` varchar(255) DEFAULT NULL,
+  `pro_details` varchar(255) DEFAULT NULL,
+  `source_ip` varchar(255) NOT NULL,
+  `user_id` varchar(255) NOT NULL,
+  `assign_id` varchar(255) DEFAULT NULL,
+  `ticket_id` varchar(255) NOT NULL,
+  `department` varchar(255) NOT NULL,
+  `issue_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `remark` varchar(255) DEFAULT NULL,
+  `assigned_time` timestamp NULL DEFAULT NULL,
+  `resolve_date` timestamp NULL DEFAULT NULL,
+  `rem_eng` varchar(1000) DEFAULT NULL,
+  `seat_number` int NOT NULL,
+  PRIMARY KEY (`ticket_id`),
+  KEY `s_no` (`s_no`),
+  KEY `p_id` (`p_id`),
+  KEY `p_cat_id` (`p_cat_id`),
+  CONSTRAINT `p_details_ibfk_1` FOREIGN KEY (`p_id`) REFERENCES `problem_master` (`p_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `p_details`
+--
+
+LOCK TABLES `p_details` WRITE;
+/*!40000 ALTER TABLE `p_details` DISABLE KEYS */;
+/*!40000 ALTER TABLE `p_details` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `problem_master`
+--
+
+DROP TABLE IF EXISTS `problem_master`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `problem_master` (
+  `sno` int NOT NULL AUTO_INCREMENT,
+  `p_id` int NOT NULL,
+  `p_category` varchar(255) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`p_id`),
+  KEY `sno` (`sno`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `problem_master`
+--
+
+LOCK TABLES `problem_master` WRITE;
+/*!40000 ALTER TABLE `problem_master` DISABLE KEYS */;
+INSERT INTO `problem_master` VALUES (1,1,'software','2023-01-21 06:08:04'),(2,2,'Hardware','2023-01-21 06:09:56'),(3,3,'Convox','2023-01-21 06:10:06'),(4,4,'Network','2023-01-21 06:10:19'),(5,5,'vi_app','2023-01-21 06:10:42'),(6,6,'IAPMS','2023-01-21 06:11:14');
+/*!40000 ALTER TABLE `problem_master` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `problem_sub_cat`
+--
+
+DROP TABLE IF EXISTS `problem_sub_cat`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `problem_sub_cat` (
+  `sno` int NOT NULL AUTO_INCREMENT,
+  `p_id` int NOT NULL,
+  `p_cat_id` int NOT NULL,
+  `issue` varchar(255) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`p_cat_id`),
+  KEY `sno` (`sno`),
+  KEY `p_id` (`p_id`),
+  KEY `p_cat_id` (`p_cat_id`),
+  CONSTRAINT `problem_sub_cat_ibfk_1` FOREIGN KEY (`p_id`) REFERENCES `problem_master` (`p_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `problem_sub_cat`
+--
+
+LOCK TABLES `problem_sub_cat` WRITE;
+/*!40000 ALTER TABLE `problem_sub_cat` DISABLE KEYS */;
+INSERT INTO `problem_sub_cat` VALUES (1,1,100,'OS_issue','2023-01-21 06:13:57'),(2,1,101,'Eye_beam','2023-01-21 06:14:46'),(3,1,102,'Lan_chat','2023-01-21 06:14:58'),(4,1,103,'browser_issue','2023-01-21 06:15:30'),(5,1,104,'Other','2023-01-21 06:16:00'),(6,2,200,'LCD','2023-01-21 06:18:05'),(7,2,201,'VGA','2023-01-21 06:18:17'),(8,2,202,'power_cord','2023-01-21 06:18:44'),(9,2,203,'Headphone','2023-01-21 06:19:01'),(10,2,204,'mouse','2023-01-21 06:19:25'),(11,2,205,'Keyboard','2023-01-21 06:19:36'),(12,2,206,'Other','2023-01-21 06:19:57'),(13,3,300,'SIP_issue','2023-01-21 06:20:36'),(20,3,301,'other','2023-01-21 06:42:42'),(14,4,400,'ip_issue','2023-01-21 06:21:05'),(15,4,401,'LAN','2023-01-21 06:21:30'),(16,4,402,'wifi_issue','2023-01-21 06:21:48'),(17,4,403,'IO_switch','2023-01-21 06:22:09'),(18,4,404,'Patch_cord_issue','2023-01-21 06:22:34'),(19,4,405,'other','2023-01-21 06:22:55');
+/*!40000 ALTER TABLE `problem_sub_cat` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user_details`
+--
+
+DROP TABLE IF EXISTS `user_details`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `user_details` (
+  `sr_no` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `Date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `department` varchar(255) NOT NULL,
+  `category` varchar(255) NOT NULL,
+  PRIMARY KEY (`email`),
+  UNIQUE KEY `username` (`username`),
+  KEY `sr_no` (`sr_no`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user_details`
+--
+
+LOCK TABLES `user_details` WRITE;
+/*!40000 ALTER TABLE `user_details` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user_details` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2023-06-23 21:12:54

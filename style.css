@@ -1,0 +1,30 @@
+/* body{
+    background-image:url("n1 ");
+    background-size: cover;
+
+} */
+
+
+html{
+    background-image:url("n1.jpg");
+    background-size: cover;
+}
+div.main{ 
+    margin: 50px;
+    padding: 20%;
+}
+div.register{
+padding: 10%;
+}
+
+h2{
+    align-content: center;
+}
+input#description{
+    display: grid;
+    width: 500px;
+}
+
+
+
+    
